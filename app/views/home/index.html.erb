@@ -1,0 +1,86 @@
+<h1>Recettes au AirFryer</h1>
+<h3 id="typing-text">Faites-vous plaisir en cuisinant plus facilement !</h3>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/boeuf", class: "card text-center p-3 h-100" do %>
+        <h4>BOEUF</h4>
+        <%= image_tag "boeuf.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/volaille", class: "card text-center p-3 h-100" do %>
+        <h4>VOLAILLE</h4>
+        <%= image_tag "volaille.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/poisson", class: "card text-center p-3 h-100" do %>
+        <h4>POISSON</h4>
+        <%= image_tag "poisson.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/porc", class: "card text-center p-3 h-100" do %>
+        <h4>PORC</h4>
+        <%= image_tag "porc.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/oeufs", class: "card text-center p-3 h-100" do %>
+        <h4>OEUFS</h4>
+        <%= image_tag "oeufs.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/legumes", class: "card text-center p-3 h-100" do %>
+        <h4>LÉGUMES</h4>
+        <%= image_tag "legumes.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <%= link_to "/recettes/desserts", class: "card text-center p-3 h-100" do %>
+        <h4>DESSERTS</h4>
+        <%= image_tag "dessert.jpeg", size: "100x100" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const textElement = document.getElementById("typing-text");
+  const text = textElement.innerText;
+  textElement.innerHTML = ""; // vide le texte initial
+
+  let i = 0;
+
+  function typeLetter() {
+    if (i < text.length) {
+      const span = document.createElement("span");
+      span.innerText = text[i];
+      span.style.marginRight = "1px"; // espace entre lettres
+      textElement.appendChild(span);
+      i++;
+      setTimeout(typeLetter, 50); // vitesse en ms
+    } else {
+      // une fois la phrase terminée, attend 1 sec puis recommence
+      setTimeout(() => {
+        textElement.innerHTML = "";
+        i = 0;
+        typeLetter();
+      }, 1000);
+    }
+  }
+
+  typeLetter();
+});
+</script>

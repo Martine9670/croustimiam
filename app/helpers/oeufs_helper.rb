@@ -1,0 +1,2 @@
+module OeufsHelper
+end
